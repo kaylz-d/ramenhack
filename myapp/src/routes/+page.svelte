@@ -49,9 +49,17 @@
 <!-- <div class="h-[400vh]"></div> -->
 
 <!-- #FFCC90 is a good color -->
-<div style="background-image: url({wallpaper})" class="fixed inset-0 flex flex-col items-center justify-center bg-cover bg-center">
+<div style="background-image: url({wallpaper})" class="font-[Belanosima] fixed inset-0 flex flex-col items-center justify-center bg-cover bg-center">
     <img src={title} alt="Ramen Hack title" class="max-h-[30vh] w-auto my-4">
-    <button class="text-red-700 text-lg border-2 border-red-700 rounded-full py-2 px-4">RSVP HERE</button>
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-3">
+        <p class="text-red-500 text-lg">use cool scrolling effects</p>
+        <button class="text-red-500 text-lg border-2 border-red-500 rounded-full py-2 px-4 hover:text-white hover:bg-red-500">• RSVP HERE •</button>
+        <p class="text-red-500 text-lg">get a grant to buy noodles</p>
+    </div>
+
+    <div id="book">
+        
+    </div>
 </div>
 
 <img src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club flag that links to Hack Club website" class="fixed top-0 left-0">
