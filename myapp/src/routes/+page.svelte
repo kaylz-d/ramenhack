@@ -8,8 +8,9 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import Lenis from 'lenis';
-    import title from '$lib/assets/title.png';
-    import wallpaper from '$lib/assets/background_reexport.png';
+	import title from '$lib/assets/title.png';
+	import wallpaper from '$lib/assets/background_reexport.png';
+    import ramenbowl from '$lib/assets/ramenbowl.png';
 
 	onMount(() => {
 		// gemini says onMount is used to wait for the page to load before starting GSAP
@@ -23,18 +24,18 @@
 		gsap.registerPlugin(ScrollTrigger);
 		// put book animation here
 
-        // AI GENERATED CODE, just using for reference==============
-		// gsap.to('#book', {
-		// 	scrollTrigger: {
-		// 		trigger: '.h-\\[400vh\\]', // The long scroll track
-		// 		start: 'top top', // Start when the top of the track hits the top of the screen
-		// 		end: 'bottom bottom', // End when the bottom hits the bottom
-		// 		scrub: 1 // 1 second "catch up" - makes it feel smooth
-		// 	},
-		// 	rotationY: -180, // Flips the book over
-		// 	x: -100, // Moves it slightly left like a real book opening
-		// 	ease: 'none' // No bounce, just direct scroll-to-animation mapping
-		// });
+		// AI GENERATED CODE, just using for reference==============
+		gsap.to('#book', {
+			scrollTrigger: {
+				trigger: '.h-\\[400vh\\]', // The long scroll track
+				start: 'top top', // Start when the top of the track hits the top of the screen
+				end: 'bottom bottom', // End when the bottom hits the bottom
+				scrub: 1 // 1 second "catch up" - makes it feel smooth
+			},
+			rotationY: -180, // Flips the book over
+			x: -100, // Moves it slightly left like a real book opening
+			ease: 'none' // No bounce, just direct scroll-to-animation mapping
+		});
 	});
 </script>
 
@@ -48,18 +49,38 @@
 <!-- The Scroll Track: This creates the "length" of the scroll -->
 <!-- <div class="h-[400vh]"></div> -->
 
-<!-- #FFCC90 is a good color -->
-<div style="background-image: url({wallpaper})" class="font-[Belanosima] fixed inset-0 flex flex-col items-center justify-center bg-cover bg-center">
-    <img src={title} alt="Ramen Hack title" class="max-h-[30vh] w-auto my-4">
-    <div class="flex flex-col lg:flex-row items-center justify-center gap-3">
-        <p class="text-red-500 text-lg">use cool scrolling effects</p>
-        <button class="text-red-500 text-lg border-2 border-red-500 rounded-full py-2 px-4 hover:text-white hover:bg-red-500">• RSVP HERE •</button>
-        <p class="text-red-500 text-lg">get a grant to buy noodles</p>
-    </div>
+<div class="bg-[#FFCC90] w-screen h-screen">
+	<!-- #FFCC90 is a good color -->
+	<div
+		style="background-image: url({wallpaper})"
+		class="inset-0 flex h-screen w-screen flex-col items-center justify-center bg-cover bg-center font-[Belanosima]"
+	>
+		<div class="fixed text-lg lg:text-2xl text-red-500 right-0 my-auto text-center pr-4 lg:pr-8">
+            <p>• hello</p>
+            <p class="text-orange-400">what?</p>
+            <p class="text-orange-400">FAQ</p>
+            <p class="text-orange-400">guides</p>
+        </div>
+        <img src={title} alt="Ramen Hack title" class="my-4 max-h-[30vh] w-auto" />
+		<div class="flex flex-col items-center justify-center gap-3 lg:flex-row">
+			<p class="text-lg text-red-500">use cool scrolling effects</p>
+			<button
+				class="rounded-full border-2 border-red-500 px-4 py-2 text-lg text-red-500 hover:bg-red-500 hover:text-white"
+				>• SUBMIT HERE •</button
+			>
+			<p class="text-lg text-red-500">get a grant to buy noodles</p>
+		</div>
 
-    <div id="book">
+		<!-- <div id="book">
         
-    </div>
-</div>
+    </div> -->
+	</div>
 
-<img src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club flag that links to Hack Club website" class="fixed top-0 left-0">
+	<img
+		src="https://assets.hackclub.com/flag-orpheus-top.svg"
+		alt="Hack Club flag that links to Hack Club website"
+		class="fixed top-0 left-0"
+	/>
+
+    <img src={ramenbowl} alt="Picture of ramen bowl" class="hidden lg:block fixed -left-80 -bottom-110 scale-75 rotate-75">
+</div>
