@@ -52,6 +52,17 @@
                 targets: '#hello-text',
                 className: '!text-orange-400'
             }
+        }),
+
+        gsap.to('#bowl', {
+            scrollTrigger: {
+                trigger: '#what',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            },
+            rotation: -90,
+            ease: 'none'
         })
 	});
 </script>
@@ -102,7 +113,7 @@
     <!-- <img src={ramenbowl} alt="Picture of ramen bowl" class="hidden lg:block fixed -left-80 -bottom-110 scale-75 rotate-75"> -->
     <div id="what" class="bg-[#FFCC90] w-screen h-screen flex flex-col items-center justify-center">
         <p class="text-4xl bold font-[Belanosima] py-8 text-red-500">How does this work?</p>
-        <img src={ramenbowl} alt="Tonkotsu ramen" class="h-100 w-auto rotate-75">
+        <img id="bowl" src={ramenbowl} alt="Tonkotsu ramen" class="h-100 w-auto rotate-75">
         <p class="text-2xl bold font-[Belanosima] py-8">More stuff to come later :D</p>
     </div>
 </div>
