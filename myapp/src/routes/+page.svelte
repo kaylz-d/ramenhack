@@ -25,17 +25,34 @@
 		// put book animation here
 
 		// AI GENERATED CODE, just using for reference==============
-		gsap.to('#book', {
-			scrollTrigger: {
-				trigger: '.h-\\[400vh\\]', // The long scroll track
-				start: 'top top', // Start when the top of the track hits the top of the screen
-				end: 'bottom bottom', // End when the bottom hits the bottom
-				scrub: 1 // 1 second "catch up" - makes it feel smooth
-			},
-			rotationY: -180, // Flips the book over
-			x: -100, // Moves it slightly left like a real book opening
-			ease: 'none' // No bounce, just direct scroll-to-animation mapping
-		});
+		// gsap.to('#book', {
+		// 	scrollTrigger: {
+		// 		trigger: '.h-\\[400vh\\]', // The long scroll track
+		// 		start: 'top top', // Start when the top of the track hits the top of the screen
+		// 		end: 'bottom bottom', // End when the bottom hits the bottom
+		// 		scrub: 1 // 1 second "catch up" - makes it feel smooth
+		// 	},
+		// 	rotationY: -180, // Flips the book over
+		// 	x: -100, // Moves it slightly left like a real book opening
+		// 	ease: 'none' // No bounce, just direct scroll-to-animation mapping
+		// });
+
+        ScrollTrigger.create({
+            trigger: '#what',
+            start: 'top center',
+            end: 'bottom center',
+            toggleClass: {
+                targets: '#what-text',
+                className: '!text-red-600'
+            }
+        }),
+
+        ScrollTrigger.create({
+            toggleClass: {
+                targets: '#hello-text',
+                className: '!text-orange-400'
+            }
+        })
 	});
 </script>
 
@@ -56,8 +73,8 @@
 		class="inset-0 flex h-screen w-screen flex-col items-center justify-center bg-cover bg-center font-[Belanosima]"
 	>
 		<div class="fixed text-lg lg:text-2xl text-red-500 right-0 my-auto text-center pr-4 lg:pr-8">
-            <p>• hello</p>
-            <p class="text-orange-400">what?</p>
+            <p id="hello-text">hello</p>
+            <p id="what-text" class="text-orange-400">what?</p>
             <p class="text-orange-400">FAQ</p>
             <p class="text-orange-400">guides</p>
         </div>
@@ -82,5 +99,10 @@
 		class="fixed top-0 left-0"
 	/>
 
-    <img src={ramenbowl} alt="Picture of ramen bowl" class="hidden lg:block fixed -left-80 -bottom-110 scale-75 rotate-75">
+    <!-- <img src={ramenbowl} alt="Picture of ramen bowl" class="hidden lg:block fixed -left-80 -bottom-110 scale-75 rotate-75"> -->
+    <div id="what" class="bg-[#FFCC90] w-screen h-screen flex flex-col items-center justify-center">
+        <p class="text-4xl bold font-[Belanosima] py-8 text-red-500">How does this work?</p>
+        <img src={ramenbowl} alt="Tonkotsu ramen" class="h-100 w-auto rotate-75">
+        <p class="text-2xl bold font-[Belanosima] py-8">More stuff to come later :D</p>
+    </div>
 </div>
