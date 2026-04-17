@@ -10,7 +10,7 @@
 	import Lenis from 'lenis';
 	import title from '$lib/assets/title.png';
 	import wallpaper from '$lib/assets/background_reexport.png';
-    import ramenbowl from '$lib/assets/ramenbowl.png';
+	import ramenbowl from '$lib/assets/ramenbowl.png';
 
 	onMount(() => {
 		// gemini says onMount is used to wait for the page to load before starting GSAP
@@ -37,33 +37,31 @@
 		// 	ease: 'none' // No bounce, just direct scroll-to-animation mapping
 		// });
 
-        ScrollTrigger.create({
-            trigger: '#what',
-            start: 'top center',
-            end: 'bottom center',
-            toggleClass: {
-                targets: '#what-text',
-                className: '!text-red-600'
-            }
-        }),
-
-        ScrollTrigger.create({
-            toggleClass: {
-                targets: '#hello-text',
-                className: '!text-orange-400'
-            }
-        }),
-
-        gsap.to('#bowl', {
-            scrollTrigger: {
-                trigger: '#what',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-            },
-            rotation: -90,
-            ease: 'none'
-        })
+		(ScrollTrigger.create({
+			trigger: '#what',
+			start: 'top center',
+			end: 'bottom center',
+			toggleClass: {
+				targets: '#what-text',
+				className: '!text-red-600'
+			}
+		}),
+			ScrollTrigger.create({
+				toggleClass: {
+					targets: '#hello-text',
+					className: '!text-orange-400'
+				}
+			}),
+			gsap.to('#bowl', {
+				scrollTrigger: {
+					trigger: '#what',
+					start: 'top bottom',
+					end: 'bottom top',
+					scrub: true
+				},
+				rotation: -90,
+				ease: 'none'
+			}));
 	});
 </script>
 
@@ -77,19 +75,19 @@
 <!-- The Scroll Track: This creates the "length" of the scroll -->
 <!-- <div class="h-[400vh]"></div> -->
 
-<div class="bg-[#FFCC90] w-screen h-screen">
+<div class="h-screen w-screen bg-[#FFCC90]">
 	<!-- #FFCC90 is a good color -->
 	<div
 		style="background-image: url({wallpaper})"
 		class="inset-0 flex h-screen w-screen flex-col items-center justify-center bg-cover bg-center font-[Belanosima]"
 	>
-		<div class="fixed text-lg lg:text-2xl text-red-500 right-0 my-auto text-center pr-4 lg:pr-8">
-            <p id="hello-text">hello</p>
-            <p id="what-text" class="text-orange-400">what?</p>
-            <p class="text-orange-400">FAQ</p>
-            <p class="text-orange-400">guides</p>
-        </div>
-        <img src={title} alt="Ramen Hack title" class="my-4 max-h-[30vh] w-auto" />
+		<div class="fixed right-0 my-auto pr-4 text-center text-lg text-red-500 lg:pr-8 lg:text-2xl">
+			<p id="hello-text">hello</p>
+			<p id="what-text" class="text-orange-400">what?</p>
+			<p class="text-orange-400">FAQ</p>
+			<p class="text-orange-400">guides</p>
+		</div>
+		<img src={title} alt="Ramen Hack title" class="my-4 max-h-[30vh] w-auto" />
 		<div class="flex flex-col items-center justify-center gap-3 lg:flex-row">
 			<p class="text-lg text-red-500">use cool scrolling effects</p>
 			<button
@@ -104,16 +102,18 @@
     </div> -->
 	</div>
 
-	<img
-		src="https://assets.hackclub.com/flag-orpheus-top.svg"
-		alt="Hack Club flag that links to Hack Club website"
-		class="fixed top-0 left-0"
-	/>
+	<a href="https://hackclub.com/"
+		><img
+			src="https://assets.hackclub.com/flag-orpheus-top.svg"
+			alt="Hack Club flag that links to Hack Club website"
+			class="fixed top-0 left-0"
+		/></a
+	>
 
-    <!-- <img src={ramenbowl} alt="Picture of ramen bowl" class="hidden lg:block fixed -left-80 -bottom-110 scale-75 rotate-75"> -->
-    <div id="what" class="bg-[#FFCC90] w-screen h-screen flex flex-col items-center justify-center">
-        <p class="text-4xl bold font-[Belanosima] py-8 text-red-500">How does this work?</p>
-        <img id="bowl" src={ramenbowl} alt="Tonkotsu ramen" class="h-100 w-auto rotate-75">
-        <p class="text-2xl bold font-[Belanosima] py-8">More stuff to come later :D</p>
-    </div>
+	<!-- <img src={ramenbowl} alt="Picture of ramen bowl" class="hidden lg:block fixed -left-80 -bottom-110 scale-75 rotate-75"> -->
+	<div id="what" class="flex h-screen w-screen flex-col items-center justify-center bg-[#FFCC90]">
+		<p class="bold py-8 font-[Belanosima] text-4xl text-red-500">How does this work?</p>
+		<img id="bowl" src={ramenbowl} alt="Tonkotsu ramen" class="h-100 w-auto rotate-75" />
+		<p class="bold py-8 font-[Belanosima] text-2xl">More stuff to come later :D</p>
+	</div>
 </div>
